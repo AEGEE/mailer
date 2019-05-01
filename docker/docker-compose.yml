@@ -2,22 +2,32 @@ version: '3.2'
 
 services:
     oms-mailer:
+        restart: unless-stopped
         build:
             context: ./$PATH_OMS_MAILER/../
             dockerfile: ./docker/oms-mailer/Dockerfile
         expose:
-            - "4000"
-        environment:
-            MIX_ENV: prod
+            - 4000
+        # environment:
+        #     MIX_ENV: ${MIX_ENV}
+        env_file: ./$PATH_OMS_MAILER/.env
         depends_on:
             - oms-mail-transfer-agent
+        # no traefik labels here, because we do not want 
+        # this API to be reachable from outside
 
     oms-mail-transfer-agent:
+        restart: always
         build:
             context: ./$PATH_OMS_MAILER/mail_transfer_agent
             dockerfile: Dockerfile
         expose:
-            - "25"
+            - 25
         secrets:
             - mail_password
             - mail_user
+
+networks:
+  default:
+    external:
+      name: OMS
