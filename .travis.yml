@@ -11,3 +11,15 @@ before_script:
 
 script:
     - sudo docker-compose -f docker-compose-secrets.yml -f docker-compose.yml run oms-mailer env MIX_ENV=test mix coveralls
+
+after_script:
+  - sudo docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+  - sudo docker tag aegee/oms-mailer aegee/oms-mailer:${TRAVIS_COMMIT}
+  - sudo docker push aegee/oms-mailer:${TRAVIS_COMMIT}
+  - sudo docker tag aegee/oms-mailer:${TRAVIS_COMMIT} aegee/oms-mailer:latest
+  - sudo docker push aegee/oms-mailer:latest
+  - sudo docker tag aegee/oms-mail-transfer-agent aegee/oms-mail-transfer-agent:${TRAVIS_COMMIT}
+  - sudo docker push aegee/oms-mail-transfer-agent:${TRAVIS_COMMIT}
+  - sudo docker tag aegee/oms-mail-transfer-agent:${TRAVIS_COMMIT} aegee/oms-mail-transfer-agent:latest
+  - sudo docker push aegee/oms-mail-transfer-agent:latest
+  # if: branch = master

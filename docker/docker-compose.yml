@@ -6,6 +6,7 @@ services:
         build:
             context: ./$PATH_OMS_MAILER/../
             dockerfile: ./docker/oms-mailer/Dockerfile
+        image: aegee/oms-mailer        
         expose:
             - 4000
         # environment:
@@ -21,6 +22,7 @@ services:
         build:
             context: ./$PATH_OMS_MAILER/mail_transfer_agent
             dockerfile: Dockerfile
+        image: aegee/oms-mail-transfer-agent        
         expose:
             - 25
         secrets:
