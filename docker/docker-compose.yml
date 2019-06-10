@@ -7,10 +7,16 @@ services:
             dockerfile: ./docker/oms-mailer/Dockerfile
         expose:
             - "4000"
+        ports:
+            - 4000:4000
         environment:
             MIX_ENV: prod
+            #USE_SENDGRID: 1
+            #SENDGRID_KEY_FILE: /run/secrets/sendgrid_key
         depends_on:
             - oms-mail-transfer-agent
+        #secrets:
+        #    - sendgrid_key
 
     oms-mail-transfer-agent:
         build:

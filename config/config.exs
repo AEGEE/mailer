@@ -49,6 +49,15 @@ config :omsmailer, Omsmailer.Mailer,
   #auth: :always # can be `always`. If your smtp relay requires authentication set it to `always`.
 
 
+# Rewrite mailer config if we are supposed to use sendgrid
+if System.get_env("USE_SENDGRID") do
+  config :omsmailer, Omsmailer.Mailer,
+    adapter: Bamboo.SendGridAdapter,
+    api_key: String.trim(Helper.read_secret_from_file(System.get_env("SENDGRID_KEY_FILE"), "censored"))
+end
+
+
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
