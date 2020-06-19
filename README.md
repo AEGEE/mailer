@@ -1,4 +1,4 @@
-![CircleCI](https://img.shields.io/circleci/build/github/AEGEE/oms-core-js)
+![CircleCI](https://img.shields.io/circleci/build/github/AEGEE/mailer)
 
 # Omsmailer
 
