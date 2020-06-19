@@ -7,7 +7,7 @@ services:
             dockerfile: ./docker/mailer/Dockerfile
             args: 
                 MIX_ENV: development
-        image: aegeemailer:dev
+        image: aegee/mailer:dev
         volumes:
             - /usr/src/myapp/deps
 
@@ -15,4 +15,4 @@ services:
         build:
             context: ./${PATH_MAILER}/..
             dockerfile: docker/mail_transfer_agent/Dockerfile
-        image: aegeemail-transfer-agent:dev
+        image: aegee/mail-transfer-agent:dev
