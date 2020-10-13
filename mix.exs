@@ -40,7 +40,7 @@ defmodule Omsmailer.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:gettext, "~> 0.11"},
       {:bamboo, "~> 1.1"},
-      {:bamboo_smtp, "~> 1.6.0"},
+      {:bamboo_smtp, "~> 3.0.0"},
       {:plug_cowboy, "~> 1.0"},
       {:cowboy, "~> 1.0"},
       {:excoveralls, "~> 0.10", only: :test}
