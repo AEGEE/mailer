@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%= render(OmsmailerWeb.SnippetsView, "head.html", title: "MyAEGEE: New application submitted") %>
+<%= render(OmsmailerWeb.SnippetsView, "head.html", title: "MyAEGEE: New candidature submitted") %>
 
 
 <body style="width:100% !important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;">
@@ -38,12 +38,12 @@
                       </tr>
                       <tr>
                         <td align="center" style="padding: 0 56px 28px 56px;" valign="top">
-                          <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 20px; color: #333;"><strong>A new application is submitted</strong></div>
+                          <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 20px; color: #333;"><strong>A new candidature is submitted</strong></div>
                           <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 16px; color: #333;">
-                            A new application to position
+                            A new candidature to position
                             <strong><%= @parameters["position"]["name"] %></strong>
                             is submitted by
-                            <strong><%= @parameters["candidate"]["first_name"] @parameters["candidate"]["last_name"] %></strong>.
+                            <strong><%= @parameters["candidate"]["first_name"] %><%= @parameters["candidate"]["last_name"] %></strong>.
                           </div>
                         </td>
                       </tr>
@@ -51,7 +51,7 @@
                         <td align="center" style="padding: 0 56px 28px 56px;" valign="top">
                           <div>
                             <a href="https://my.aegee.eu/statutory/<%= @parameters["position"]["event_id"] %>/positions/all" style="background-color:#1468C5;border-radius:50px;color:#ffffff;display:inline-block;font-family: 'lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:18px;font-weight: bold;line-height:40px;text-align:center;text-decoration:none;width:270px;-webkit-text-size-adjust:none;"
-                              target="_blank">Approve or reject</a>
+                              target="_blank">View candidatures</a>
                           </div>
                         </td>
                       </tr>
