@@ -1,4 +1,7 @@
 orbs:
+  docker: circleci/docker@1.6.0
+  node: circleci/node@4.7.0
+  shellcheck: circleci/shellcheck@2.2.4
   slack: circleci/slack@4.4.4
 version: 2.1
 jobs:
@@ -32,6 +35,20 @@ jobs:
       - setup_remote_docker:
           version: 20.10.7
       - run: docker-compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml build --no-cache mailer
+  yamllint:
+    docker:
+      - image: cimg/python:3.10.0
+    steps:
+      - checkout
+      - run: pip install yamllint
+      - run: yamllint -d .yamllint.yml .
+  shellcheck:
+    docker:
+      - image: cimg/base:2021.10
+    steps:
+      - checkout
+      - shellcheck/install
+      - shellcheck/check
   docker-build-and-push:
     docker:
       - image: cimg/node:16.13.0
@@ -138,12 +155,21 @@ jobs:
 
 workflows:
   version: 2
+  linters:
+    jobs:
+      - yamllint
+      - shellcheck
+      - docker/hadolint:
+          dockerfiles: $(find . -name '*Dockerfile*')
   test:
     jobs:
       - test
   build:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: master
   docker-build-and-push:
     jobs:
       - docker-build-and-push:
