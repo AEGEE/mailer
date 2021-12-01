@@ -4,7 +4,6 @@
 
 <%= render(OmsmailerWeb.SnippetsView, "head.html", title: "MyAEGEE: New board added for " <> @parameters["body_name"]) %>
 
-
 <body style="width:100% !important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;">
   <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable" style="margin:0; padding:0; width:100% !important; line-height: 100% !important; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;background-color: #F9FAFB;"
     width="100%">
@@ -38,7 +37,7 @@
                       </tr>
                       <tr>
                         <td align="center" style="padding: 0 56px 28px 56px;" valign="top">
-                          <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 20px; color: #333;"><strong>A new board has successfully been added for <%= @parameters["event"]["name"] %></strong></div>
+                          <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 20px; color: #333;"><strong>A new board has successfully been added for <%= @parameters["body_name"] %></strong></div>
                         </td>
                       </tr>
                       <tr>
