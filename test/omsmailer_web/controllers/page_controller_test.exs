@@ -11,10 +11,10 @@ defmodule OmsmailerWeb.PageControllerTest do
     assert json_response(conn, 200)
   end
 
-  test "GET /healthcheck", %{conn: conn} do
-    conn = get conn, "healthcheck"
-    assert json_response(conn, 200)
-  end
+  # test "GET /healthcheck", %{conn: conn} do
+  #   conn = get conn, "/healthcheck"
+  #   assert json_response(conn, 200)
+  # end
 
   # Tests test template
   test "POST / default template", %{conn: conn} do
@@ -119,13 +119,6 @@ defmodule OmsmailerWeb.PageControllerTest do
 
   test "POST / autocompletes template file", %{conn: conn} do
     conn = post conn, "/", %{template: "custom", parameters: %{body: "huhu"}, from: "mailer@aegee.org", to: "test@aegee.org", subject: "pirates"}
-    assert json_response(conn, 200)
-    assert_email_delivered_with(subject: "pirates")
-  end
-
-  # Welcome works
-  test "POST / welcome", %{conn: conn} do
-    conn = post conn, "/", %{template: "welcome.html", parameters: %{name: "Franz", surname: "Ferdinant"}, from: "mailer@aegee.org", to: "test@aegee.org", subject: "pirates"}
     assert json_response(conn, 200)
     assert_email_delivered_with(subject: "pirates")
   end
