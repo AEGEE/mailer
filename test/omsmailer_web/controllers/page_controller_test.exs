@@ -123,6 +123,13 @@ defmodule OmsmailerWeb.PageControllerTest do
     assert_email_delivered_with(subject: "pirates")
   end
 
+  # New member works
+  test "POST / new_member", %{conn: conn} do
+    conn = post conn, "/", %{template: "new_member.html", parameters: %{name: "Franz", surname: "Ferdinant"}, from: "mailer@aegee.org", to: "test@aegee.org", subject: "pirates"}
+    assert json_response(conn, 200)
+    assert_email_delivered_with(subject: "pirates")
+  end
+
   # Membership expired
   test "POST / membership expired", %{conn: conn} do
     conn = post conn, "/", %{template: "membership_expired.html", parameters: %{body: "AEGEE-Dresden", last_payment: "2018-11-23T08:51:04.038159"}, from: "mailer@aegee.org", to: "test@aegee.org", subject: "pirates"}
