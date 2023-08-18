@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run: sudo apt-get update
-      - run: sudo apt-get install elixir
+      - run: sudo apt-get install elixir erlang
       - run: mix local.hex --force
       - run: mix local.rebar --force
       - run: mix deps.get
