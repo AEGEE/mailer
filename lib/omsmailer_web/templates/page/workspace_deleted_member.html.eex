@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%= render(OmsmailerWeb.SnippetsView, "head.html", title: "MyAEGEE: A member has been removed from their last local") %>
+<%= render(OmsmailerWeb.SnippetsView, "head.html", title: "MyAEGEE: A member has been removed from their last body") %>
 
 
 <body style="width:100% !important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;">
@@ -38,7 +38,7 @@
                       </tr>
                       <tr>
                         <td align="center" style="padding: 0 56px 28px 56px;" valign="top">
-                          <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 20px; color: #333;"><strong>A member has been removed from their last local!</strong></div>
+                          <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 20px; color: #333;"><strong>A member has been removed from their last body!</strong></div>
                           <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 16px; color: #333;">First name: <%= @parameters["member_firstname"] %></div>
                           <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 16px; color: #333;">Last name: <%= @parameters["member_lastname"] %></div>
                           <div style="font-family: &quot;lato&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 28px;font-size: 16px; color: #333;">Email: <%= @parameters["member_workspace_email"] %></div>
